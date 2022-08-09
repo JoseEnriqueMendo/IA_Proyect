@@ -20,11 +20,11 @@ import {
 } from '@react-google-maps/api'
 import { useRef, useState } from 'react'
 
-const center = { lat: 48.8584, lng: 2.2945 }
+const center = {lat: -11.9859997, lng:-77.0084945 }
 
 function App() {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: "AIzaSyAuUYZORtWcGLjDnCNOKsuqh6DGur0soos",
     libraries: ['places'],
   })
 
