@@ -24,6 +24,7 @@ import {
 } from "@react-google-maps/api";
 import { useRef, useState } from "react";
 
+
 const center = { lat: -11.987504, lng: -77.00561 };
 
 function App() {
@@ -181,7 +182,7 @@ function App() {
     ],
     zIndex: 1,
   };
-  const algoritmo = ()=> Dkjistra(data[0], data[1])
+  
   return (
 
       
@@ -194,7 +195,8 @@ function App() {
       w="100vw"
     >
     
-      {algoritmo}
+      <Dkjistra nodo1={data[0]}
+      nodo2={data[1]} />
       <Box position="absolute" left={0} top={0} h="100%" w="100%">
         {/* Google Map Box */}
         <GoogleMap
