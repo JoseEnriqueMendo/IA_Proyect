@@ -17,10 +17,14 @@ import {
   Marker,
   Autocomplete,
   DirectionsRenderer,
+  Polyline,
+  Polygon,
+
 } from '@react-google-maps/api'
 import { useRef, useState } from 'react'
 
 const center = {lat: -11.9859997, lng:-77.0084945 }
+const center2 = {lat: -11.984757923290912, lng:-77.00691041691982}
 
 function App() {
   const { isLoaded } = useJsApiLoader({
@@ -41,7 +45,7 @@ function App() {
   if (!isLoaded) {
     return <SkeletonText />
   }
-
+  // FUNCION DE CALCULO DE RUTA
   async function calculateRoute() {
     if (originRef.current.value === '' || destiantionRef.current.value === '') {
       return
@@ -67,6 +71,38 @@ function App() {
     destiantionRef.current.value = ''
   }
 
+  const onLoad = polyline => {
+    console.log('polyline: ', polyline)
+  };
+  
+  const path = [
+    {lat: -11.983228084405187, lng: -77.01108365258064},
+    {lat: -11.983702353375579, lng: -77.01002225748856},
+    {lat: -11.984136487329181, lng: -77.01016260648828},
+    {lat: -11.98460454122703, lng:-77.01033970772438}
+  ];
+
+
+  const options = {
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35,
+    clickable: false,
+    draggable: false,
+    editable: false,
+    visible: true,
+    radius: 30000,
+    paths: [
+      {lat: -11.983228084405187, lng: -77.01108365258064},
+    {lat: -11.983702353375579, lng: -77.01002225748856},
+    {lat: -11.984136487329181, lng: -77.01016260648828},
+    {lat: -11.98460454122703, lng:-77.01033970772438}
+    ],
+    zIndex: 1
+  };
+
   return (
     <Flex
       position='relative'
@@ -79,7 +115,7 @@ function App() {
         {/* Google Map Box */}
         <GoogleMap
           center={center}
-          zoom={15}
+          zoom={16}
           mapContainerStyle={{ width: '100%', height: '100%' }}
           options={{
             zoomControl: false,
@@ -89,10 +125,20 @@ function App() {
           }}
           onLoad={map => setMap(map)}
         >
+          {/* poner los marcadores aqui */}
+
           <Marker position={center} />
+          <Marker position={center2} />
           {directionsResponse && (
             <DirectionsRenderer directions={directionsResponse} />
           )}
+      <Polyline
+        onLoad={onLoad}
+        path={path}
+        options={options}
+      />
+
+
         </GoogleMap>
       </Box>
       <Box

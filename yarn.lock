@@ -6979,6 +6979,11 @@
     "lower-case" "^2.0.2"
     "tslib" "^2.0.3"
 
+"node-dijkstra@^2.5.0":
+  "integrity" "sha512-2REYb1lo8yDRAY1gsdhjwQdGVSh47VI5Z5wS8sCqydO/P1OVAKOwLuV1fDxNLvbrtMspW7k2UZ2JKIKP06hl+A=="
+  "resolved" "https://registry.npmjs.org/node-dijkstra/-/node-dijkstra-2.5.0.tgz"
+  "version" "2.5.0"
+
 "node-forge@^1.2.0":
   "integrity" "sha512-Fcvtbb+zBcZXbTTVwqGA5W+MKBj56UjVRevvchv5XrcyXbmNdesfZL37nlcWOfpgHhgmxApw3tQbTr4CqNmX4w=="
   "resolved" "https://registry.npmjs.org/node-forge/-/node-forge-1.2.1.tgz"
