@@ -10,6 +10,8 @@ import {
   Text,
 } from '@chakra-ui/react'
 import { FaLocationArrow, FaTimes } from 'react-icons/fa'
+import {Dkjistra} from './prueba'; 
+import  data from './/data.json'
 
 import {
   useJsApiLoader,
@@ -23,8 +25,8 @@ import {
 } from '@react-google-maps/api'
 import { useRef, useState } from 'react'
 
-const center = {lat: -11.9859997, lng:-77.0084945 }
-const center2 = {lat: -11.984757923290912, lng:-77.00691041691982}
+const center = {lat: -11.987504, lng:-77.005610 }
+
 
 function App() {
   const { isLoaded } = useJsApiLoader({
@@ -76,18 +78,58 @@ function App() {
   };
   
   const path = [
-    {lat: -11.983228084405187, lng: -77.01108365258064},
-    {lat: -11.983702353375579, lng: -77.01002225748856},
-    {lat: -11.984136487329181, lng: -77.01016260648828},
-    {lat: -11.98460454122703, lng:-77.01033970772438}
+    {lat: -11.983208, lng: -77.011162},
+{lat: -11.984275, lng: -77.011161},
+{lat: -11.985030, lng: -77.009262},
+{lat: -11.985524, lng: -77.009338},
+{lat: -11.985660, lng: -77.008715},
+{lat: -11.985775, lng: -77.008737},
+{lat: -11.986353, lng: -77.009338},
+{lat: -11.987287, lng: -77.008479},
+{lat: -11.988042, lng: -77.009262},
+{lat: -11.988934, lng: -77.008350},
+{lat: -11.988662, lng: -77.007996},
+{lat: -11.988756, lng: -77.007943},
+{lat: -11.988531, lng: -77.006823},
+{lat: -11.989904, lng: -77.006823},
+{lat: -11.989917, lng: -77.006951},
+{lat: -11.990541, lng: -77.006836},
+{lat: -11.991402, lng: -77.006351},
+{lat: -11.991627, lng: -77.006759},
+{lat: -11.992026, lng: -77.006568},
+{lat: -11.991851, lng: -77.006223},
+{lat: -11.991726, lng: -77.005751},
+{lat: -11.991739, lng: -77.005522},
+{lat: -11.991177, lng: -77.005381},
+{lat: -11.991227, lng: -77.004871},
+{lat: -11.991439, lng: -77.004833},
+{lat: -11.991389, lng: -77.002893},
+{lat: -11.991502, lng: -77.002880},
+{lat: -11.991614, lng: -77.002396},
+{lat: -11.991726, lng: -77.002383},
+{lat: -11.991876, lng: -77.001949},
+{lat: -11.992001, lng: -77.001936},
+{lat: -11.992026, lng: -77.001388},
+{lat: -11.992488, lng: -77.001337},
+{lat: -11.992725, lng: -77.000826},
+{lat: -11.992937, lng: -76.999959},
+{lat: -11.991926, lng: -76.999831},
+{lat: -11.991926, lng: -77.000329},
+{lat: -11.992038, lng: -77.000444},
+{lat: -11.990815, lng: -77.003467},
+{lat: -11.986435, lng: -77.001847},
+{lat: -11.985786, lng: -77.003250},
+{lat: -11.984837, lng: -77.006695},
+{lat: -11.983202, lng: -77.011135},
+{lat: -11.983208, lng: -77.011162}
   ];
 
 
   const options = {
-    strokeColor: '#FF0000',
+    strokeColor: "green",
     strokeOpacity: 0.8,
     strokeWeight: 2,
-    fillColor: '#FF0000',
+    fillColor: "green",
     fillOpacity: 0.35,
     clickable: false,
     draggable: false,
@@ -95,15 +137,56 @@ function App() {
     visible: true,
     radius: 30000,
     paths: [
-      {lat: -11.983228084405187, lng: -77.01108365258064},
-    {lat: -11.983702353375579, lng: -77.01002225748856},
-    {lat: -11.984136487329181, lng: -77.01016260648828},
-    {lat: -11.98460454122703, lng:-77.01033970772438}
+      {lat: -11.983208, lng: -77.011162},
+      {lat: -11.984275, lng: -77.011161},
+      {lat: -11.985030, lng: -77.009262},
+      {lat: -11.985524, lng: -77.009338},
+      {lat: -11.985660, lng: -77.008715},
+      {lat: -11.985775, lng: -77.008737},
+      {lat: -11.986353, lng: -77.009338},
+      {lat: -11.987287, lng: -77.008479},
+      {lat: -11.988042, lng: -77.009262},
+      {lat: -11.988934, lng: -77.008350},
+      {lat: -11.988662, lng: -77.007996},
+      {lat: -11.988756, lng: -77.007943},
+      {lat: -11.988531, lng: -77.006823},
+      {lat: -11.989904, lng: -77.006823},
+      {lat: -11.989917, lng: -77.006951},
+      {lat: -11.990541, lng: -77.006836},
+      {lat: -11.991402, lng: -77.006351},
+      {lat: -11.991627, lng: -77.006759},
+      {lat: -11.992026, lng: -77.006568},
+      {lat: -11.991851, lng: -77.006223},
+      {lat: -11.991726, lng: -77.005751},
+      {lat: -11.991739, lng: -77.005522},
+      {lat: -11.991177, lng: -77.005381},
+      {lat: -11.991227, lng: -77.004871},
+      {lat: -11.991439, lng: -77.004833},
+      {lat: -11.991389, lng: -77.002893},
+      {lat: -11.991502, lng: -77.002880},
+      {lat: -11.991614, lng: -77.002396},
+      {lat: -11.991726, lng: -77.002383},
+      {lat: -11.991876, lng: -77.001949},
+      {lat: -11.992001, lng: -77.001936},
+      {lat: -11.992026, lng: -77.001388},
+      {lat: -11.992488, lng: -77.001337},
+      {lat: -11.992725, lng: -77.000826},
+      {lat: -11.992937, lng: -76.999959},
+      {lat: -11.991926, lng: -76.999831},
+      {lat: -11.991926, lng: -77.000329},
+      {lat: -11.992038, lng: -77.000444},
+      {lat: -11.990815, lng: -77.003467},
+      {lat: -11.986435, lng: -77.001847},
+      {lat: -11.985786, lng: -77.003250},
+      {lat: -11.984837, lng: -77.006695},
+      {lat: -11.983202, lng: -77.011135},
+      {lat: -11.983208, lng: -77.011162}
     ],
     zIndex: 1
   };
 
   return (
+   
     <Flex
       position='relative'
       flexDirection='column'
@@ -111,11 +194,13 @@ function App() {
       h='100vh'
       w='100vw'
     >
+
+      {Dkjistra()}
       <Box position='absolute' left={0} top={0} h='100%' w='100%'>
         {/* Google Map Box */}
         <GoogleMap
           center={center}
-          zoom={16}
+          zoom={16.5}
           mapContainerStyle={{ width: '100%', height: '100%' }}
           options={{
             zoomControl: false,
@@ -126,9 +211,21 @@ function App() {
           onLoad={map => setMap(map)}
         >
           {/* poner los marcadores aqui */}
+          
+          {data.map( data=>{ 
+      return(
 
-          <Marker position={center} />
-          <Marker position={center2} />
+          <Marker
+          position={{lat: Number(data.lat), lng :Number(data.lon)}}
+          label ={{text: data.id, color: "white"}}
+          key={data.id}
+          />
+)}   
+          )}
+         
+
+
+
           {directionsResponse && (
             <DirectionsRenderer directions={directionsResponse} />
           )}

@@ -7,6 +7,7 @@ ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <App />
+      
     </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root')
