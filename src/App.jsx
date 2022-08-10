@@ -10,8 +10,8 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { FaLocationArrow, FaTimes } from "react-icons/fa";
-import { Dkjistra } from "./prueba";
 import data from "./data.json";
+import Graph from "node-dijkstra";
 
 import {
   useJsApiLoader,
@@ -23,7 +23,6 @@ import {
   Polygon,
 } from "@react-google-maps/api";
 import { useRef, useState } from "react";
-
 
 const center = { lat: -11.987504, lng: -77.00561 };
 
@@ -70,6 +69,60 @@ function App() {
     setDuration("");
     originRef.current.value = "";
     destiantionRef.current.value = "";
+  }
+
+  function DistanciEntreNodos(nodo1, nodo2) {
+    // eslint-disable-next-line no-undef
+    const directionsService = new google.maps.DirectionsService();
+
+    directionsService.route(
+      {
+        origin: { lat: Number(nodo1.lat), lng: Number(nodo1.lon) },
+        destination: { lat: Number(nodo2.lat), lng: Number(nodo2.lon) },
+        // eslint-disable-next-line no-undef
+        travelMode: google.maps.TravelMode.DRIVING,
+      },
+      (Response, status) => {
+        // eslint-disable-next-line no-undef
+        if (status === google.maps.DirectionsStatus.OK) {
+          return(Response.routes[0].legs[0].distance.value);
+          // console.log(Response.routes[0].legs[0].distance.value);
+        } else {
+          return 0;
+        }
+      }
+    );
+  }
+
+ 
+
+
+
+  function Dijkstra() {
+    console.log( DistanciEntreNodos(data[0], data[1]))
+    // var g = new Graph();
+    // g.addVertex("N1", {
+    //   N2: 23 ,
+    //   N5: DistanciEntreNodos(data[0], data[4]),
+    // });
+    // g.addVertex("N2", {
+    //   N1: 23,
+    //   N3: 13,
+    // });
+    // g.addVertex("N3", {
+    //   N2: DistanciEntreNodos(data[2], data[1]),
+    //   N4: DistanciEntreNodos(data[2], data[3]),
+    // });
+    // g.addVertex("N4", {
+    //   N3: DistanciEntreNodos(data[3], data[2]),
+    //   N5: DistanciEntreNodos(data[3], data[4]),
+    // });
+    // g.addVertex("N5", {
+    //   N1: DistanciEntreNodos(data[4], data[0]),
+    //   N4: DistanciEntreNodos(data[4], data[3]),
+    // });
+
+   // console.log(g.path("N1", "N2")); // => ['A', 'B', 'C', 'D']
   }
 
   const onLoad = (polyline) => {
@@ -182,11 +235,10 @@ function App() {
     ],
     zIndex: 1,
   };
-  
+
+ 
+
   return (
-
-      
-
     <Flex
       position="relative"
       flexDirection="column"
@@ -195,8 +247,8 @@ function App() {
       w="100vw"
     >
     
-      <Dkjistra nodo1={data[0]}
-      nodo2={data[1]} />
+      { DistanciEntreNodos(data[1], data[2])} 
+      {/* { Dijkstra() } */}
       <Box position="absolute" left={0} top={0} h="100%" w="100%">
         {/* Google Map Box */}
         <GoogleMap
